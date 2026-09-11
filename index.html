@@ -3,235 +3,414 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Nody Box — battery-powered Ethernet heartbeat for AI datacenter construction. Know which drops are still alive while cabling continues." />
-  <meta name="theme-color" content="#0b0d10" />
-  <title>Nody Box — Not dead yet</title>
+  <meta name="description" content="Nody Box — battery-powered Ethernet heartbeat modules for AI datacenter construction. Proof of life for cable drops that cannot stay pingable." />
+  <meta name="theme-color" content="#0a2540" />
+  <title>Nody Box — Battery Ethernet Heartbeat for Datacenter Construction</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="site-header">
+  <header class="site-header" id="top">
     <div class="wrap header-inner">
       <a class="brand" href="#top" aria-label="Nody Box home">
-        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-mark" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+            <rect width="28" height="28" rx="6" fill="#0a2540"/>
+            <path d="M7 14h14M14 7v14" stroke="#2d8cff" stroke-width="2.2" stroke-linecap="round"/>
+            <circle cx="14" cy="14" r="3.2" fill="#0a2540" stroke="#2d8cff" stroke-width="1.6"/>
+          </svg>
+        </span>
         <span class="brand-name">Nody Box</span>
       </a>
-      <nav class="nav" aria-label="Primary">
+
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+      </button>
+
+      <nav class="nav" id="primary-nav" aria-label="Primary">
+        <a href="#product">Product</a>
         <a href="#how">How it works</a>
-        <a href="#why">Why</a>
-        <a href="#hardware">Hardware</a>
-        <a href="#apps" class="nav-cta">Apps</a>
+        <a href="#apps">Apps</a>
+        <a href="#contact" class="nav-cta">Contact</a>
       </nav>
     </div>
   </header>
 
   <main id="main">
-    <section id="top" class="hero">
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-heading">
       <div class="wrap hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow">
-            <span class="pulse" aria-hidden="true"></span>
-            Datacenter construction · Ethernet heartbeat
-          </p>
-          <h1>
-            Still phoning home.<br />
-            <span class="accent-text">Not dead yet.</span>
-          </h1>
+          <p class="eyebrow">Datacenter construction · Network infrastructure</p>
+          <h1 id="hero-heading">Battery-powered Ethernet heartbeat for cable plant builds</h1>
           <p class="lede">
-            Battery-powered modules that hang on the far end of a cable run and
-            wake on a schedule to prove the drop is still alive — through months
-            of AI datacenter cabling.
+            Nody Box modules hang on the far end of a run and wake on a schedule to prove
+            the drop is still alive — through months of AI datacenter cabling, without PoE
+            and without staying pingable.
           </p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#how">See how it works</a>
-            <a class="btn btn-ghost" href="#apps">Get the apps</a>
+            <a class="btn btn-primary" href="#product">Explore the product</a>
+            <a class="btn btn-secondary" href="#how">How it works</a>
           </div>
-          <ul class="hero-stats" aria-label="Key facts">
-            <li><strong>~15 min</strong><span>wake cycle</span></li>
-            <li><strong>Months</strong><span>on battery</span></li>
-            <li><strong>No ICMP</strong><span>by design</span></li>
+          <ul class="hero-stats" aria-label="Key specifications">
+            <li>
+              <strong>~15 min</strong>
+              <span>wake cycle</span>
+            </li>
+            <li>
+              <strong>Months</strong>
+              <span>on LiPo battery</span>
+            </li>
+            <li>
+              <strong>No ICMP</strong>
+              <span>outbound phone-home</span>
+            </li>
           </ul>
         </div>
-        <div class="hero-visual" aria-hidden="true">
-          <div class="device-card">
-            <div class="device-bezel">
-              <div class="oled">
-                <div class="oled-row"><span class="oled-label">ID</span><span>rack-a-01</span></div>
-                <div class="oled-row"><span class="oled-label">BAT</span><span>3.71 V</span></div>
-                <div class="oled-row"><span class="oled-label">LAST</span><span class="ok">HTTP 200</span></div>
-                <div class="oled-bar">
-                  <span class="oled-bar-fill"></span>
-                </div>
-                <p class="oled-tag">NEXT WAKE 14:52</p>
+
+        <div class="hero-visual">
+          <figure class="device-mock" aria-label="Nody Box device mockup">
+            <div class="device-shell">
+              <div class="device-ports" aria-hidden="true">
+                <span class="port rj45"></span>
+                <span class="port usb"></span>
               </div>
+              <div class="device-screen">
+                <div class="oled">
+                  <div class="oled-header">
+                    <span class="oled-brand">NODY BOX</span>
+                    <span class="oled-status">READY</span>
+                  </div>
+                  <div class="oled-row"><span class="oled-label">UNIT</span><span>rack-a-01</span></div>
+                  <div class="oled-row"><span class="oled-label">BAT</span><span>3.71 V</span></div>
+                  <div class="oled-row"><span class="oled-label">LAST</span><span class="ok">HTTP 200</span></div>
+                  <div class="oled-meter" aria-hidden="true"><span style="width:72%"></span></div>
+                  <p class="oled-foot">NEXT WAKE · 14:52</p>
+                </div>
+              </div>
+              <figcaption class="device-caption">
+                Compact module · ESP32 · W5500 · OLED · LiPo
+              </figcaption>
             </div>
-            <div class="device-meta">
-              <span class="dot live"></span>
-              Heartbeat confirmed · deep sleep
+          </figure>
+          <div class="photo-placeholders" aria-hidden="true">
+            <div class="photo-card">
+              <div class="photo-frame photo-a"></div>
+              <p>Field install</p>
+            </div>
+            <div class="photo-card">
+              <div class="photo-frame photo-b"></div>
+              <p>Rack drop</p>
             </div>
           </div>
-          <div class="orbit orbit-a"></div>
-          <div class="orbit orbit-b"></div>
         </div>
       </div>
     </section>
 
-    <section id="how" class="section">
+    <!-- Trust band -->
+    <section class="trust-band" aria-label="Use cases">
+      <div class="wrap trust-inner">
+        <p class="trust-label">Built for</p>
+        <ul class="trust-list">
+          <li>AI datacenter build-outs</li>
+          <li>Structured cabling contractors</li>
+          <li>Network commissioning teams</li>
+          <li>Multi-month plant schedules</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Product / Features -->
+    <section id="product" class="section">
       <div class="wrap">
         <header class="section-head">
+          <p class="eyebrow">Product</p>
+          <h2>Proof of life for drops that must sleep</h2>
+          <p class="section-lede">
+            Keeping a module online for ICMP would drain the pack over a multi-month build.
+            Nody Box phones home on its own schedule so your collector sees which drops are
+            still alive while cabling continues.
+          </p>
+        </header>
+
+        <div class="feature-grid">
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+            </div>
+            <h3>Scheduled wake, not always-on</h3>
+            <p>Deep sleep conserves battery. Timer wakes the module about every 15 minutes for a short heartbeat window.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="7" width="20" height="10" rx="2"/>
+                <path d="M6 7V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2M6 17v2a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-2"/>
+                <circle cx="12" cy="12" r="2"/>
+              </svg>
+            </div>
+            <h3>Not pingable — by design</h3>
+            <p>No inbound ICMP or listeners. The only receive path is the HTTP response to the module’s own POST.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+              </svg>
+            </div>
+            <h3>Battery for the build</h3>
+            <p>LiPo-powered for months-long construction where PoE is not yet available at the far end of the run.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/>
+              </svg>
+            </div>
+            <h3>Fleet visibility</h3>
+            <p>Hang one on each far-end drop. Your collector reports ok, late, or missing — not guesswork on the floor.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="5" y="2" width="14" height="20" rx="2"/>
+                <path d="M9 18h6"/>
+              </svg>
+            </div>
+            <h3>On-device OLED</h3>
+            <p>Glance at unit id, battery voltage, and last confirmation at the rack — no laptop required for a quick check.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <h3>Wired plant, USB provision</h3>
+            <p>W5500 Ethernet at the drop. Fleet provisioning over USB with <code>etctl</code>; native field apps coming soon.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section id="how" class="section section-muted">
+      <div class="wrap">
+        <header class="section-head center">
           <p class="eyebrow">How it works</p>
           <h2>Sleep. Wake. Prove it. Sleep.</h2>
           <p class="section-lede">
-            A simple cycle designed for multi-month builds — not for always-on monitoring.
+            A deliberate cycle for multi-month builds — not always-on monitoring.
           </p>
         </header>
+
         <ol class="steps">
           <li class="step">
-            <span class="step-num">01</span>
+            <span class="step-num" aria-hidden="true">01</span>
             <h3>Deep sleep</h3>
-            <p>Radio and MCU off. No listeners. Battery conserved for the long haul.</p>
+            <p>Radio and MCU off. No listeners. Battery conserved for the long haul of the build schedule.</p>
           </li>
           <li class="step">
-            <span class="step-num">02</span>
+            <span class="step-num" aria-hidden="true">02</span>
             <h3>Wake + DHCP</h3>
-            <p>Timer fires (~every 15 minutes). Ethernet comes up; the module takes an address.</p>
+            <p>Timer fires (~every 15 minutes). Ethernet comes up; the module obtains an address on the plant network.</p>
           </li>
           <li class="step">
-            <span class="step-num">03</span>
+            <span class="step-num" aria-hidden="true">03</span>
             <h3>POST heartbeat</h3>
-            <p>JSON status — id, battery, MAC, and more — POSTed to your collector.</p>
+            <p>JSON status — unit id, battery, MAC, and more — POSTed to your collector endpoint.</p>
           </li>
           <li class="step">
-            <span class="step-num">04</span>
+            <span class="step-num" aria-hidden="true">04</span>
             <h3>Confirm &amp; sleep</h3>
-            <p>Wait for HTTP 2xx (up to 3 tries), then drop back into deep sleep.</p>
+            <p>Wait for HTTP 2xx (up to three tries), then return to deep sleep until the next wake.</p>
           </li>
         </ol>
       </div>
     </section>
 
-    <section id="why" class="section section-alt">
-      <div class="wrap why-grid">
+    <!-- Specs -->
+    <section id="specs" class="section">
+      <div class="wrap specs-layout">
         <header class="section-head">
-          <p class="eyebrow">Why it exists</p>
-          <h2>You can’t ping what must sleep.</h2>
+          <p class="eyebrow">Specifications</p>
+          <h2>Hardware at a glance</h2>
           <p class="section-lede">
-            Keeping a module online for ICMP would kill the pack over a multi-month
-            build. Nody Box phones home on its own schedule instead — so you know
-            which drops are still alive while cabling continues.
+            Compact, battery-first hardware for the cable plant. Collector backend ships separately —
+            this site is product marketing and downloads, not the ops dashboard.
           </p>
         </header>
-        <ul class="reasons">
-          <li>
-            <h3>Not pingable — on purpose</h3>
-            <p>Inbound traffic isn’t served. The sole receive path is the HTTP response to its own POST.</p>
-          </li>
-          <li>
-            <h3>Battery for the build</h3>
-            <p>Designed to last through months of construction without PoE or constant power.</p>
-          </li>
-          <li>
-            <h3>Fleet visibility</h3>
-            <p>Hang one on the far end of each run. Your collector sees ok / late / missing — not guesswork.</p>
-          </li>
-          <li>
-            <h3>Built for AI infra build-outs</h3>
-            <p>For datacenter construction and network engineers who need proof of life, not a sketch pad.</p>
-          </li>
-        </ul>
-      </div>
-    </section>
 
-    <section id="hardware" class="section">
-      <div class="wrap">
-        <header class="section-head">
-          <p class="eyebrow">Hardware · v0</p>
-          <h2>Small board. Long memory.</h2>
-          <p class="section-lede">
-            Compact, battery-first hardware for the cable plant — provisioned over USB with <code>etctl</code>.
-          </p>
-        </header>
-        <div class="hw-grid">
-          <article class="hw-card">
-            <div class="hw-icon" aria-hidden="true">MCU</div>
-            <h3>ESP32</h3>
-            <p>Low-power MCU for wake, sleep, and the heartbeat cycle.</p>
-          </article>
-          <article class="hw-card">
-            <div class="hw-icon" aria-hidden="true">ETH</div>
-            <h3>W5500 Ethernet</h3>
-            <p>Wired link at the far end of the run — no Wi‑Fi dependency in the plant.</p>
-          </article>
-          <article class="hw-card">
-            <div class="hw-icon" aria-hidden="true">BAT</div>
-            <h3>LiPo (not PoE)</h3>
-            <p>Self-powered for months-long builds where PoE isn’t in place yet.</p>
-          </article>
-          <article class="hw-card">
-            <div class="hw-icon" aria-hidden="true">OLED</div>
-            <h3>OLED display</h3>
-            <p>On-device glance at id, battery, and last confirmation — no laptop required.</p>
-          </article>
+        <div class="specs-panel">
+          <table class="specs-table">
+            <caption class="visually-hidden">Nody Box hardware specifications</caption>
+            <tbody>
+              <tr>
+                <th scope="row">Microcontroller</th>
+                <td>ESP32</td>
+              </tr>
+              <tr>
+                <th scope="row">Ethernet</th>
+                <td>W5500 (wired, no Wi‑Fi dependency in the plant)</td>
+              </tr>
+              <tr>
+                <th scope="row">Display</th>
+                <td>OLED — unit id, battery, last confirmation</td>
+              </tr>
+              <tr>
+                <th scope="row">Power</th>
+                <td>LiPo battery (not PoE)</td>
+              </tr>
+              <tr>
+                <th scope="row">Wake interval</th>
+                <td>~15 minutes (configurable)</td>
+              </tr>
+              <tr>
+                <th scope="row">Reachability</th>
+                <td>Outbound HTTP POST only — not ICMP-pingable</td>
+              </tr>
+              <tr>
+                <th scope="row">Provisioning</th>
+                <td>USB + <code>etctl</code>; native iOS / Android apps forthcoming</td>
+              </tr>
+              <tr>
+                <th scope="row">Deployment</th>
+                <td>Far-end of cable runs during datacenter construction</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        <p class="hw-note">
-          Fleet provisioned via USB + <strong>etctl</strong>. Companion iOS/Android apps are on the way.
-          Collector backend ships separately — this site is marketing and downloads, not the ops dashboard.
-        </p>
       </div>
     </section>
 
-    <section id="apps" class="section section-alt">
+    <!-- Apps -->
+    <section id="apps" class="section section-muted">
       <div class="wrap">
         <header class="section-head center">
           <p class="eyebrow">Companion apps</p>
-          <h2>Provision from your pocket.</h2>
+          <h2>Field provisioning from your pocket</h2>
           <p class="section-lede">
             Native iOS and Android apps for field setup are in progress.
-            Placeholders below — no broken store links.
+            Store listings will appear here when available.
           </p>
         </header>
-        <div class="app-grid">
-          <article class="app-card">
-            <div class="app-badge" aria-hidden="true">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+
+        <div class="store-row">
+          <article class="store-card">
+            <div class="store-badge" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
             </div>
-            <div class="app-body">
-              <p class="app-platform">App Store</p>
-              <h3>Nody Box for iOS</h3>
-              <p>Field provisioning and status for iPhone and iPad.</p>
+            <div class="store-body">
+              <p class="store-platform">Download on the</p>
+              <h3>App Store</h3>
+              <p>Nody Box for iPhone and iPad — field provisioning and status.</p>
               <button type="button" class="btn btn-disabled" disabled aria-disabled="true">Coming soon</button>
             </div>
           </article>
-          <article class="app-card">
-            <div class="app-badge android" aria-hidden="true">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 9.48l1.84-3.18c.16-.31.04-.69-.26-.85-.29-.15-.65-.06-.83.22l-1.88 3.24A11.46 11.46 0 0 0 12 8.5c-1.55 0-3.01.3-4.37.91L5.75 5.67c-.18-.28-.54-.37-.83-.22-.3.16-.42.54-.26.85L6.5 9.48C3.92 11.05 2.2 13.8 2 17h20c-.2-3.2-1.92-5.95-4.4-7.52zM7.5 14.25a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm9 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/></svg>
+
+          <article class="store-card">
+            <div class="store-badge android" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 9.48l1.84-3.18c.16-.31.04-.69-.26-.85-.29-.15-.65-.06-.83.22l-1.88 3.24A11.46 11.46 0 0 0 12 8.5c-1.55 0-3.01.3-4.37.91L5.75 5.67c-.18-.28-.54-.37-.83-.22-.3.16-.42.54-.26.85L6.5 9.48C3.92 11.05 2.2 13.8 2 17h20c-.2-3.2-1.92-5.95-4.4-7.52zM7.5 14.25a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm9 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/></svg>
             </div>
-            <div class="app-body">
-              <p class="app-platform">Google Play</p>
-              <h3>Nody Box for Android</h3>
-              <p>Same provisioning flow on Android handsets and tablets.</p>
+            <div class="store-body">
+              <p class="store-platform">Get it on</p>
+              <h3>Google Play</h3>
+              <p>Nody Box for Android — same provisioning flow on handsets and tablets.</p>
               <button type="button" class="btn btn-disabled" disabled aria-disabled="true">Coming soon</button>
             </div>
           </article>
         </div>
+
         <form class="notify" id="notify-form" novalidate>
-          <label for="notify-email" class="visually-hidden">Email for launch notify</label>
-          <input id="notify-email" name="email" type="email" autocomplete="email" placeholder="you@company.com" />
-          <button type="submit" class="btn btn-primary">Notify me</button>
+          <p class="notify-title">Get notified when apps launch</p>
+          <div class="notify-row">
+            <label for="notify-email" class="visually-hidden">Work email</label>
+            <input id="notify-email" name="email" type="email" autocomplete="email" placeholder="you@company.com" />
+            <button type="submit" class="btn btn-primary">Notify me</button>
+          </div>
           <p class="notify-hint" id="notify-msg" role="status" aria-live="polite">
-            Local placeholder — no backend wired yet. We’ll use this pattern when notify ships.
+            Local placeholder — notify is not wired to a server yet.
           </p>
         </form>
+      </div>
+    </section>
+
+    <!-- CTA / Contact -->
+    <section id="contact" class="cta-band">
+      <div class="wrap cta-inner">
+        <div class="cta-copy">
+          <h2>Ready to evaluate Nody Box for your build?</h2>
+          <p>
+            Talk with us about pilots, fleet sizing, and collector integration for your
+            datacenter construction schedule.
+          </p>
+        </div>
+        <div class="cta-actions">
+          <a class="btn btn-on-dark" href="mailto:hello@nodybox.example">Request information</a>
+          <a class="btn btn-ghost-light" href="#specs">View specifications</a>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="wrap footer-inner">
-      <p><strong>Nody Box</strong> · Not dead yet.</p>
-      <p class="footer-meta">© 2026 Nody Box · Marketing site · Not the ops dashboard</p>
+    <div class="wrap footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="#top">
+          <span class="brand-mark" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+              <rect width="28" height="28" rx="6" fill="#0a2540"/>
+              <path d="M7 14h14M14 7v14" stroke="#2d8cff" stroke-width="2.2" stroke-linecap="round"/>
+              <circle cx="14" cy="14" r="3.2" fill="#0a2540" stroke="#2d8cff" stroke-width="1.6"/>
+            </svg>
+          </span>
+          <span class="brand-name">Nody Box</span>
+        </a>
+        <p class="footer-tagline">Battery Ethernet heartbeat for datacenter construction.</p>
+      </div>
+
+      <nav class="footer-col" aria-label="Product">
+        <h3>Product</h3>
+        <ul>
+          <li><a href="#product">Overview</a></li>
+          <li><a href="#how">How it works</a></li>
+          <li><a href="#specs">Specifications</a></li>
+          <li><a href="#apps">Apps</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer-col" aria-label="Company">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="terms.html">Terms</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer-col" aria-label="Resources">
+        <h3>Resources</h3>
+        <ul>
+          <li><a href="https://github.com/roguespark-04/nody-box-web">GitHub</a></li>
+          <li><a href="#apps">Downloads</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="wrap footer-bottom">
+      <p>© 2026 Nody Box. All rights reserved.</p>
+      <p class="footer-meta">Marketing site · Not the collector / ops dashboard</p>
     </div>
   </footer>
 
