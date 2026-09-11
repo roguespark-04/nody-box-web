@@ -33,9 +33,9 @@ Static files only — no build step. Compatible with GitHub Pages from the repos
 | --- | --- |
 | `index.html` | Commercial product homepage |
 | `privacy.html` / `terms.html` | Legal placeholders |
-| `styles.css` | Light enterprise theme + local fonts |
+| `styles.css` | Industrial dark theme (Atom brand tokens) + local fonts |
 | `app.js` | Mobile nav + notify placeholder |
-| `assets/` | Favicon + IBM Plex woff2 |
+| `assets/` | Cube mark, favicon, IBM Plex woff2 |
 | `screenshots/` | Capture references |
 
 App Store / Google Play cards are **Coming soon** placeholders (no fake store URLs).
