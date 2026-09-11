@@ -1,8 +1,8 @@
 # Nody Box — product site
 
-Commercial marketing site for **Nody Box**: battery-powered Ethernet heartbeat modules for AI datacenter construction.
+Commercial marketing site for **Nody Box**: battery-powered Ethernet heartbeat **hardware** for AI datacenter construction and cable plant verification.
 
-This repo is the public marketing + downloads page. It is **not** the collector / ops dashboard.
+This repo is the public company / product marketing page. It is **not** the collector / ops dashboard. Companion mobile apps are secondary (coming soon).
 
 ## Local preview
 
@@ -31,11 +31,11 @@ Static files only — no build step. Compatible with GitHub Pages from the repos
 
 | Path | Role |
 | --- | --- |
-| `index.html` | Commercial product homepage |
+| `index.html` | Industrial commercial company homepage |
 | `privacy.html` / `terms.html` | Legal placeholders |
-| `styles.css` | Dark-gray commercial enterprise theme (charcoal/slate + copper accents) + local fonts |
-| `app.js` | Mobile nav + notify placeholder |
-| `assets/` | Brand lockup (copper N + NODY BOX), N mark/favicon, IBM Plex woff2 |
+| `styles.css` | Charcoal + copper corporate theme + local IBM Plex |
+| `app.js` | Mobile nav |
+| `assets/` | Brand lockup (copper N + NODY BOX), N mark/favicon, fonts |
 | `screenshots/` | Capture references |
 
-App Store / Google Play cards are **Coming soon** placeholders (no fake store URLs).
+Design intent: Harris / Applied Digital / Siemens / Keysight-class **hardware seller** — not a SaaS or app-store landing page.
