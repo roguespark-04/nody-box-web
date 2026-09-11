@@ -35,7 +35,7 @@ Static files only — no build step. Compatible with GitHub Pages from the repos
 | `privacy.html` / `terms.html` | Legal placeholders |
 | `styles.css` | Dark-gray commercial enterprise theme (charcoal/slate + copper accents) + local fonts |
 | `app.js` | Mobile nav + notify placeholder |
-| `assets/` | Cube mark, favicon, IBM Plex woff2 |
+| `assets/` | Brand lockup (copper N + NODY BOX), N mark/favicon, IBM Plex woff2 |
 | `screenshots/` | Capture references |
 
 App Store / Google Play cards are **Coming soon** placeholders (no fake store URLs).
