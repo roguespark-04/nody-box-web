@@ -28,34 +28,43 @@
   src: url("assets/fonts/plex-mono-400.woff2") format("woff2");
 }
 
-/* Nody Box — industrial dark commercial
-   Locked tokens from Atom mobile apps */
+/* Nody Box — light commercial enterprise
+   Copper accents retained from Atom brand tokens */
 
 :root {
-  --bg: #0b0d10;
-  --bg-elevated: #12151a;
-  --bg-card: #161a21;
-  --text: #ece8e1;
-  --text-muted: #9a948a;
-  --text-dim: #6e6960;
+  --bg: #ffffff;
+  --bg-soft: #f5f6f8;
+  --bg-muted: #eef0f3;
+  --bg-elevated: #ffffff;
+  --bg-card: #ffffff;
+  --bg-dark-tile: #1a1d23;
+
+  --text: #1f242b;
+  --text-muted: #5c6570;
+  --text-dim: #8a929c;
+  --text-on-dark: #f4f1ec;
+
   --copper: #c9854a;
   --copper-bright: #e0a066;
-  --copper-soft: rgba(201, 133, 74, 0.14);
+  --copper-deep: #a66a35;
+  --copper-soft: rgba(201, 133, 74, 0.1);
+  --copper-softer: rgba(201, 133, 74, 0.06);
+
   --signal: #5ecf9a;
   --signal-soft: rgba(94, 207, 154, 0.12);
 
-  --border: rgba(236, 232, 225, 0.08);
-  --border-strong: rgba(236, 232, 225, 0.14);
-  --copper-border: rgba(201, 133, 74, 0.35);
+  --border: #e4e7eb;
+  --border-strong: #d0d5db;
+  --copper-border: rgba(201, 133, 74, 0.4);
 
   --font: "IBM Plex Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
   --font-mono: "IBM Plex Mono", "SF Mono", ui-monospace, Menlo, Consolas, monospace;
   --radius: 10px;
   --radius-sm: 6px;
   --radius-lg: 14px;
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
-  --shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
-  --shadow-lg: 0 20px 56px rgba(0, 0, 0, 0.55);
+  --shadow-sm: 0 1px 2px rgba(31, 36, 43, 0.04), 0 1px 3px rgba(31, 36, 43, 0.06);
+  --shadow: 0 4px 16px rgba(31, 36, 43, 0.06), 0 1px 3px rgba(31, 36, 43, 0.04);
+  --shadow-lg: 0 16px 40px rgba(31, 36, 43, 0.08), 0 4px 12px rgba(31, 36, 43, 0.04);
   --header-h: 72px;
   --max: 1120px;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -90,7 +99,7 @@ svg {
 }
 
 a {
-  color: var(--copper-bright);
+  color: var(--copper-deep);
   text-decoration-thickness: 1px;
   text-underline-offset: 0.18em;
 }
@@ -109,7 +118,7 @@ input:focus-visible {
 code {
   font-family: var(--font-mono);
   font-size: 0.9em;
-  color: var(--copper-bright);
+  color: var(--copper-deep);
   background: var(--copper-soft);
   padding: 0.12em 0.4em;
   border-radius: 4px;
@@ -127,7 +136,7 @@ code {
   top: -100px;
   z-index: 1000;
   background: var(--copper);
-  color: var(--bg);
+  color: #fff;
   padding: 0.65rem 1.1rem;
   border-radius: var(--radius-sm);
   font-weight: 600;
@@ -156,7 +165,7 @@ code {
   top: 0;
   z-index: 100;
   height: var(--header-h);
-  background: rgba(11, 13, 16, 0.88);
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border);
 }
@@ -184,15 +193,17 @@ code {
   color: var(--text);
 }
 
+/* Mark sits in a dark copper-friendly tile so black PNG doesn't stamp white */
 .brand-mark {
   display: flex;
   flex-shrink: 0;
-  width: 32px;
-  height: 32px;
-  border-radius: 7px;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
   overflow: hidden;
-  background: #000;
-  border: 1px solid var(--border-strong);
+  background: var(--bg-dark-tile);
+  border: 1px solid rgba(201, 133, 74, 0.35);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
 }
 
 .brand-mark img {
@@ -228,14 +239,15 @@ code {
   padding: 0.5rem 1.15rem !important;
   border-radius: 6px;
   background: var(--copper);
-  color: var(--bg) !important;
+  color: #fff !important;
   font-weight: 600 !important;
+  box-shadow: 0 1px 2px rgba(201, 133, 74, 0.25);
 }
 
 .nav-cta:hover,
 .nav-cta:focus-visible {
   background: var(--copper-bright);
-  color: var(--bg) !important;
+  color: #fff !important;
 }
 
 .nav-toggle {
@@ -248,7 +260,7 @@ code {
   padding: 0.5rem;
   border: 1px solid var(--border-strong);
   border-radius: var(--radius-sm);
-  background: var(--bg-elevated);
+  background: var(--bg);
   cursor: pointer;
 }
 
@@ -275,9 +287,7 @@ code {
 .hero {
   padding: clamp(3.75rem, 9vw, 6.5rem) 0 clamp(3.25rem, 6vw, 5rem);
   background:
-    radial-gradient(ellipse 80% 55% at 85% 15%, rgba(201, 133, 74, 0.08), transparent 55%),
-    radial-gradient(ellipse 50% 40% at 10% 80%, rgba(94, 207, 154, 0.04), transparent 50%),
-    linear-gradient(180deg, var(--bg-elevated) 0%, var(--bg) 100%);
+    linear-gradient(180deg, var(--bg-soft) 0%, var(--bg) 72%);
   border-bottom: 1px solid var(--border);
 }
 
@@ -298,20 +308,22 @@ code {
   text-transform: uppercase;
 }
 
+/* Tagline: secondary, professional — signal green used sparingly */
 .tagline {
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
-  margin: 0 0 1.1rem;
-  padding: 0.35rem 0.75rem 0.35rem 0.45rem;
+  gap: 0.5rem;
+  margin: 0 0 1rem;
+  padding: 0.28rem 0.7rem 0.28rem 0.4rem;
   border-radius: 999px;
-  background: var(--signal-soft);
-  border: 1px solid rgba(94, 207, 154, 0.28);
-  color: var(--signal);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
   font-family: var(--font-mono);
-  font-size: 0.8125rem;
+  font-size: 0.78rem;
   font-weight: 500;
   letter-spacing: 0.04em;
+  box-shadow: var(--shadow-sm);
 }
 
 .tagline-dot {
@@ -319,7 +331,7 @@ code {
   height: 7px;
   border-radius: 50%;
   background: var(--signal);
-  box-shadow: 0 0 0 3px rgba(94, 207, 154, 0.2);
+  box-shadow: 0 0 0 3px var(--signal-soft);
   flex-shrink: 0;
 }
 
@@ -367,53 +379,55 @@ code {
 
 .btn-primary {
   background: var(--copper);
-  color: var(--bg);
-  box-shadow: 0 4px 16px rgba(201, 133, 74, 0.28);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(201, 133, 74, 0.28);
 }
 
 .btn-primary:hover {
   background: var(--copper-bright);
-  color: var(--bg);
-  box-shadow: 0 6px 20px rgba(201, 133, 74, 0.38);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(201, 133, 74, 0.35);
 }
 
 .btn-secondary {
-  background: transparent;
+  background: var(--bg);
   border-color: var(--border-strong);
   color: var(--text);
+  box-shadow: var(--shadow-sm);
 }
 
 .btn-secondary:hover {
   border-color: var(--copper);
-  background: var(--copper-soft);
+  background: var(--copper-softer);
   color: var(--text);
 }
 
-.btn-on-dark {
+.btn-cta {
   background: var(--copper);
-  color: var(--bg);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(201, 133, 74, 0.28);
 }
 
-.btn-on-dark:hover {
+.btn-cta:hover {
   background: var(--copper-bright);
-  color: var(--bg);
+  color: #fff;
 }
 
-.btn-ghost-light {
+.btn-ghost {
   background: transparent;
-  border-color: var(--border-strong);
-  color: var(--text);
+  border-color: rgba(255, 255, 255, 0.35);
+  color: #fff;
 }
 
-.btn-ghost-light:hover {
-  border-color: var(--copper);
-  background: var(--copper-soft);
-  color: var(--text);
+.btn-ghost:hover {
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
 }
 
 .btn-disabled,
 .btn:disabled {
-  background: var(--bg-elevated);
+  background: var(--bg-muted);
   color: var(--text-dim);
   border: 1px solid var(--border);
   cursor: not-allowed;
@@ -450,29 +464,52 @@ code {
   font-weight: 500;
 }
 
-/* Device mock + photo placeholders */
+/* Device mock — enterprise product card */
 .hero-visual {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1rem;
 }
 
-.hero-mark-panel {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1.75rem;
+.hero-product-card {
+  position: relative;
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
+  padding: 1.35rem 1.35rem 1.15rem;
+  overflow: hidden;
 }
 
-.hero-mark-panel img {
-  width: min(100%, 220px);
-  height: auto;
-  border-radius: 12px;
+.hero-product-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--copper), var(--copper-bright));
+}
+
+.hero-mark-badge {
+  position: absolute;
+  top: 1.1rem;
+  right: 1.1rem;
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--bg-dark-tile);
+  border: 1px solid rgba(201, 133, 74, 0.4);
+  box-shadow: var(--shadow-sm);
+}
+
+.hero-mark-badge img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .device-mock {
@@ -480,12 +517,12 @@ code {
 }
 
 .device-shell {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow);
-  padding: 1.25rem 1.25rem 1rem;
-  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+  overflow: visible;
 }
 
 .device-ports {
@@ -499,7 +536,7 @@ code {
   display: block;
   height: 8px;
   border-radius: 2px;
-  background: var(--bg-elevated);
+  background: var(--bg-muted);
   border: 1px solid var(--border-strong);
 }
 
@@ -512,16 +549,17 @@ code {
 }
 
 .device-screen {
-  background: #080a0d;
+  background: #12151a;
   border-radius: var(--radius);
   padding: 1.15rem 1.2rem;
-  border: 1px solid var(--border-strong);
+  border: 1px solid #2a3038;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 .oled {
   font-family: var(--font-mono);
   font-size: 0.8125rem;
-  color: var(--text);
+  color: #ece8e1;
   min-height: 168px;
 }
 
@@ -531,13 +569,13 @@ code {
   align-items: center;
   margin-bottom: 1rem;
   padding-bottom: 0.65rem;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid rgba(236, 232, 225, 0.1);
 }
 
 .oled-brand {
   font-size: 0.7rem;
   letter-spacing: 0.1em;
-  color: var(--text-dim);
+  color: #6e6960;
   font-weight: 600;
 }
 
@@ -558,7 +596,7 @@ code {
 }
 
 .oled-label {
-  color: var(--text-dim);
+  color: #6e6960;
 }
 
 .oled .ok {
@@ -569,7 +607,7 @@ code {
   margin: 1rem 0 0.75rem;
   height: 4px;
   border-radius: 999px;
-  background: var(--bg-elevated);
+  background: #1a1e26;
   overflow: hidden;
 }
 
@@ -582,88 +620,53 @@ code {
 
 .oled-foot {
   margin: 0;
-  color: var(--text-dim);
+  color: #6e6960;
   letter-spacing: 0.06em;
   font-size: 0.68rem;
 }
 
 .device-caption {
-  margin: 0.85rem 0 0;
+  margin: 0.95rem 0 0;
   text-align: center;
   color: var(--text-dim);
   font-size: 0.8125rem;
   font-weight: 500;
 }
 
-.photo-placeholders {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.75rem;
+.hero-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
-.photo-card {
+.meta-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.75rem;
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
+  border-radius: 999px;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
   box-shadow: var(--shadow-sm);
 }
 
-.photo-frame {
-  aspect-ratio: 16 / 10;
-  background: var(--bg-elevated);
-}
-
-.photo-a {
-  background:
-    linear-gradient(135deg, #1a1e26 0%, #12151a 50%, #0b0d10 100%);
-  position: relative;
-}
-
-.photo-a::after {
+.meta-chip::before {
   content: "";
-  position: absolute;
-  inset: 20% 15% 25% 15%;
-  border: 1.5px solid rgba(201, 133, 74, 0.35);
-  border-radius: 4px;
-  background: rgba(201, 133, 74, 0.06);
-}
-
-.photo-b {
-  background:
-    linear-gradient(160deg, #161a21 0%, #12151a 40%, #0b0d10 100%);
-  position: relative;
-}
-
-.photo-b::before {
-  content: "";
-  position: absolute;
-  left: 12%;
-  right: 12%;
-  top: 30%;
-  height: 40%;
-  background: repeating-linear-gradient(
-    90deg,
-    rgba(201, 133, 74, 0.22) 0 4px,
-    transparent 4px 14px
-  );
-  border-radius: 2px;
-}
-
-.photo-card p {
-  margin: 0;
-  padding: 0.55rem 0.75rem;
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--text-dim);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--copper);
+  flex-shrink: 0;
 }
 
 /* ========== Trust band ========== */
 .trust-band {
-  padding: 1.4rem 0;
-  background: var(--bg-elevated);
+  padding: 1.35rem 0;
+  background: var(--bg);
   border-bottom: 1px solid var(--border);
   color: var(--text);
 }
@@ -717,7 +720,7 @@ code {
 }
 
 .section-muted {
-  background: var(--bg-elevated);
+  background: var(--bg-soft);
   border-block: 1px solid var(--border);
 }
 
@@ -889,7 +892,7 @@ code {
   width: 34%;
   font-weight: 600;
   color: var(--text);
-  background: var(--bg-elevated);
+  background: var(--bg-soft);
 }
 
 .specs-table td {
@@ -897,7 +900,7 @@ code {
 }
 
 .specs-table tr:hover td {
-  background: rgba(201, 133, 74, 0.04);
+  background: var(--copper-softer);
 }
 
 /* Store / Apps */
@@ -927,12 +930,12 @@ code {
   display: grid;
   place-items: center;
   color: var(--text);
-  background: var(--bg-elevated);
+  background: var(--bg-soft);
   border: 1px solid var(--border);
 }
 
 .store-badge.android {
-  color: var(--signal);
+  color: var(--copper-deep);
 }
 
 .store-platform {
@@ -983,6 +986,7 @@ code {
   background: var(--bg);
   color: var(--text);
   font: inherit;
+  box-shadow: var(--shadow-sm);
 }
 
 .notify input::placeholder {
@@ -996,16 +1000,15 @@ code {
 }
 
 .notify.ok .notify-hint {
-  color: var(--signal);
+  color: var(--copper-deep);
 }
 
-/* CTA band */
+/* CTA band — charcoal commercial strip with copper CTAs */
 .cta-band {
   padding: clamp(3.75rem, 8vw, 5.25rem) 0;
-  background:
-    linear-gradient(135deg, var(--bg-card) 0%, var(--bg-elevated) 100%);
-  border-block: 1px solid var(--border);
-  color: var(--text);
+  background: linear-gradient(135deg, #1a1d23 0%, #252a33 100%);
+  border-block: 1px solid #2a3038;
+  color: var(--text-on-dark);
 }
 
 .cta-inner {
@@ -1026,11 +1029,12 @@ code {
   letter-spacing: -0.02em;
   line-height: 1.25;
   font-weight: 700;
+  color: #fff;
 }
 
 .cta-copy p {
   margin: 0;
-  color: var(--text-muted);
+  color: rgba(244, 241, 236, 0.72);
   font-size: 1.05rem;
 }
 
@@ -1043,7 +1047,7 @@ code {
 /* ========== Footer ========== */
 .site-footer {
   padding: 3.5rem 0 2rem;
-  background: var(--bg);
+  background: var(--bg-soft);
   border-top: 1px solid var(--border);
 }
 
@@ -1066,7 +1070,7 @@ code {
 .footer-tagline .tagline-inline {
   display: block;
   margin-top: 0.45rem;
-  color: var(--signal);
+  color: var(--text-dim);
   font-family: var(--font-mono);
   font-size: 0.8125rem;
   letter-spacing: 0.04em;
@@ -1096,7 +1100,7 @@ code {
 }
 
 .footer-col a:hover {
-  color: var(--copper-bright);
+  color: var(--copper);
 }
 
 .footer-bottom {
@@ -1123,12 +1127,13 @@ code {
 }
 
 .footer-meta a:hover {
-  color: var(--copper-bright);
+  color: var(--copper);
 }
 
 /* ========== Legal pages ========== */
 .legal-main {
   padding: clamp(3rem, 7vw, 4.5rem) 0 5rem;
+  background: var(--bg);
 }
 
 .legal-main h1 {
@@ -1161,7 +1166,7 @@ code {
   margin-bottom: 1.5rem;
   font-weight: 600;
   text-decoration: none;
-  color: var(--copper-bright);
+  color: var(--copper-deep);
 }
 
 /* ========== Responsive ========== */
@@ -1208,7 +1213,7 @@ code {
     align-items: stretch;
     gap: 0;
     padding: 0.75rem 1.5rem 1.25rem;
-    background: var(--bg-elevated);
+    background: var(--bg);
     border-bottom: 1px solid var(--border);
     box-shadow: var(--shadow);
   }
@@ -1235,7 +1240,6 @@ code {
   .steps,
   .store-row,
   .hero-stats,
-  .photo-placeholders,
   .footer-grid {
     grid-template-columns: 1fr;
   }

@@ -33,7 +33,7 @@ Static files only — no build step. Compatible with GitHub Pages from the repos
 | --- | --- |
 | `index.html` | Commercial product homepage |
 | `privacy.html` / `terms.html` | Legal placeholders |
-| `styles.css` | Industrial dark theme (Atom brand tokens) + local fonts |
+| `styles.css` | Light commercial enterprise theme (copper accents, Atom tokens) + local fonts |
 | `app.js` | Mobile nav + notify placeholder |
 | `assets/` | Cube mark, favicon, IBM Plex woff2 |
 | `screenshots/` | Capture references |
