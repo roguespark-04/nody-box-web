@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Nody Box — battery-powered Ethernet heartbeat for AI datacenter construction. Know which drops are still alive while cabling continues." />
+  <meta name="theme-color" content="#0b0d10" />
+  <title>Nody Box — Not dead yet</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top" aria-label="Nody Box home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-name">Nody Box</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#how">How it works</a>
+        <a href="#why">Why</a>
+        <a href="#hardware">Hardware</a>
+        <a href="#apps" class="nav-cta">Apps</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section id="top" class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">
+            <span class="pulse" aria-hidden="true"></span>
+            Datacenter construction · Ethernet heartbeat
+          </p>
+          <h1>
+            Still phoning home.<br />
+            <span class="accent-text">Not dead yet.</span>
+          </h1>
+          <p class="lede">
+            Battery-powered modules that hang on the far end of a cable run and
+            wake on a schedule to prove the drop is still alive — through months
+            of AI datacenter cabling.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#how">See how it works</a>
+            <a class="btn btn-ghost" href="#apps">Get the apps</a>
+          </div>
+          <ul class="hero-stats" aria-label="Key facts">
+            <li><strong>~15 min</strong><span>wake cycle</span></li>
+            <li><strong>Months</strong><span>on battery</span></li>
+            <li><strong>No ICMP</strong><span>by design</span></li>
+          </ul>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="device-card">
+            <div class="device-bezel">
+              <div class="oled">
+                <div class="oled-row"><span class="oled-label">ID</span><span>rack-a-01</span></div>
+                <div class="oled-row"><span class="oled-label">BAT</span><span>3.71 V</span></div>
+                <div class="oled-row"><span class="oled-label">LAST</span><span class="ok">HTTP 200</span></div>
+                <div class="oled-bar">
+                  <span class="oled-bar-fill"></span>
+                </div>
+                <p class="oled-tag">NEXT WAKE 14:52</p>
+              </div>
+            </div>
+            <div class="device-meta">
+              <span class="dot live"></span>
+              Heartbeat confirmed · deep sleep
+            </div>
+          </div>
+          <div class="orbit orbit-a"></div>
+          <div class="orbit orbit-b"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how" class="section">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="eyebrow">How it works</p>
+          <h2>Sleep. Wake. Prove it. Sleep.</h2>
+          <p class="section-lede">
+            A simple cycle designed for multi-month builds — not for always-on monitoring.
+          </p>
+        </header>
+        <ol class="steps">
+          <li class="step">
+            <span class="step-num">01</span>
+            <h3>Deep sleep</h3>
+            <p>Radio and MCU off. No listeners. Battery conserved for the long haul.</p>
+          </li>
+          <li class="step">
+            <span class="step-num">02</span>
+            <h3>Wake + DHCP</h3>
+            <p>Timer fires (~every 15 minutes). Ethernet comes up; the module takes an address.</p>
+          </li>
+          <li class="step">
+            <span class="step-num">03</span>
+            <h3>POST heartbeat</h3>
+            <p>JSON status — id, battery, MAC, and more — POSTed to your collector.</p>
+          </li>
+          <li class="step">
+            <span class="step-num">04</span>
+            <h3>Confirm &amp; sleep</h3>
+            <p>Wait for HTTP 2xx (up to 3 tries), then drop back into deep sleep.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="why" class="section section-alt">
+      <div class="wrap why-grid">
+        <header class="section-head">
+          <p class="eyebrow">Why it exists</p>
+          <h2>You can’t ping what must sleep.</h2>
+          <p class="section-lede">
+            Keeping a module online for ICMP would kill the pack over a multi-month
+            build. Nody Box phones home on its own schedule instead — so you know
+            which drops are still alive while cabling continues.
+          </p>
+        </header>
+        <ul class="reasons">
+          <li>
+            <h3>Not pingable — on purpose</h3>
+            <p>Inbound traffic isn’t served. The sole receive path is the HTTP response to its own POST.</p>
+          </li>
+          <li>
+            <h3>Battery for the build</h3>
+            <p>Designed to last through months of construction without PoE or constant power.</p>
+          </li>
+          <li>
+            <h3>Fleet visibility</h3>
+            <p>Hang one on the far end of each run. Your collector sees ok / late / missing — not guesswork.</p>
+          </li>
+          <li>
+            <h3>Built for AI infra build-outs</h3>
+            <p>For datacenter construction and network engineers who need proof of life, not a sketch pad.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="hardware" class="section">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="eyebrow">Hardware · v0</p>
+          <h2>Small board. Long memory.</h2>
+          <p class="section-lede">
+            Compact, battery-first hardware for the cable plant — provisioned over USB with <code>etctl</code>.
+          </p>
+        </header>
+        <div class="hw-grid">
+          <article class="hw-card">
+            <div class="hw-icon" aria-hidden="true">MCU</div>
+            <h3>ESP32</h3>
+            <p>Low-power MCU for wake, sleep, and the heartbeat cycle.</p>
+          </article>
+          <article class="hw-card">
+            <div class="hw-icon" aria-hidden="true">ETH</div>
+            <h3>W5500 Ethernet</h3>
+            <p>Wired link at the far end of the run — no Wi‑Fi dependency in the plant.</p>
+          </article>
+          <article class="hw-card">
+            <div class="hw-icon" aria-hidden="true">BAT</div>
+            <h3>LiPo (not PoE)</h3>
+            <p>Self-powered for months-long builds where PoE isn’t in place yet.</p>
+          </article>
+          <article class="hw-card">
+            <div class="hw-icon" aria-hidden="true">OLED</div>
+            <h3>OLED display</h3>
+            <p>On-device glance at id, battery, and last confirmation — no laptop required.</p>
+          </article>
+        </div>
+        <p class="hw-note">
+          Fleet provisioned via USB + <strong>etctl</strong>. Companion iOS/Android apps are on the way.
+          Collector backend ships separately — this site is marketing and downloads, not the ops dashboard.
+        </p>
+      </div>
+    </section>
+
+    <section id="apps" class="section section-alt">
+      <div class="wrap">
+        <header class="section-head center">
+          <p class="eyebrow">Companion apps</p>
+          <h2>Provision from your pocket.</h2>
+          <p class="section-lede">
+            Native iOS and Android apps for field setup are in progress.
+            Placeholders below — no broken store links.
+          </p>
+        </header>
+        <div class="app-grid">
+          <article class="app-card">
+            <div class="app-badge" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            </div>
+            <div class="app-body">
+              <p class="app-platform">App Store</p>
+              <h3>Nody Box for iOS</h3>
+              <p>Field provisioning and status for iPhone and iPad.</p>
+              <button type="button" class="btn btn-disabled" disabled aria-disabled="true">Coming soon</button>
+            </div>
+          </article>
+          <article class="app-card">
+            <div class="app-badge android" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 9.48l1.84-3.18c.16-.31.04-.69-.26-.85-.29-.15-.65-.06-.83.22l-1.88 3.24A11.46 11.46 0 0 0 12 8.5c-1.55 0-3.01.3-4.37.91L5.75 5.67c-.18-.28-.54-.37-.83-.22-.3.16-.42.54-.26.85L6.5 9.48C3.92 11.05 2.2 13.8 2 17h20c-.2-3.2-1.92-5.95-4.4-7.52zM7.5 14.25a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm9 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/></svg>
+            </div>
+            <div class="app-body">
+              <p class="app-platform">Google Play</p>
+              <h3>Nody Box for Android</h3>
+              <p>Same provisioning flow on Android handsets and tablets.</p>
+              <button type="button" class="btn btn-disabled" disabled aria-disabled="true">Coming soon</button>
+            </div>
+          </article>
+        </div>
+        <form class="notify" id="notify-form" novalidate>
+          <label for="notify-email" class="visually-hidden">Email for launch notify</label>
+          <input id="notify-email" name="email" type="email" autocomplete="email" placeholder="you@company.com" />
+          <button type="submit" class="btn btn-primary">Notify me</button>
+          <p class="notify-hint" id="notify-msg" role="status" aria-live="polite">
+            Local placeholder — no backend wired yet. We’ll use this pattern when notify ships.
+          </p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p><strong>Nody Box</strong> · Not dead yet.</p>
+      <p class="footer-meta">© 2026 Nody Box · Marketing site · Not the ops dashboard</p>
+    </div>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
