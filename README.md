@@ -2,7 +2,7 @@
 
 Commercial marketing site for **Nody Box**: battery-powered Ethernet heartbeat **hardware** for AI datacenter construction and cable plant verification.
 
-This repo is the public company / product marketing page. It is **not** the collector / ops dashboard. Companion mobile apps are secondary (coming soon).
+This repo is the public company / product marketing page. It is **not** the collector / ops dashboard. Product surface: **website + hardware device** (USB / `etctl` provisioning).
 
 ## Local preview
 
@@ -38,4 +38,4 @@ Static files only — no build step. Compatible with GitHub Pages from the repos
 | `assets/` | Brand lockup (copper N + NODY BOX), N mark/favicon, fonts |
 | `screenshots/` | Capture references |
 
-Design intent: Harris / Applied Digital / Siemens / Keysight-class **hardware seller** — not a SaaS or app-store landing page.
+Design intent: Harris / Applied Digital / Siemens / Keysight-class **hardware seller** — website + device only; not a SaaS or app-store landing page.

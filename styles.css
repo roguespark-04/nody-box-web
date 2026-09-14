@@ -1120,76 +1120,6 @@ code {
   line-height: 1.5;
 }
 
-/* ========== Apps (secondary) ========== */
-.section-apps {
-  background: var(--bg-panel);
-  border-block: 1px solid var(--border);
-  padding: clamp(3.25rem, 6vw, 4.5rem) 0;
-}
-
-.apps-layout {
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: clamp(2rem, 4vw, 3rem);
-  align-items: center;
-}
-
-.apps-copy .section-lede {
-  max-width: 36rem;
-}
-
-.apps-copy h2 {
-  margin: 0 0 1rem;
-  font-size: clamp(1.45rem, 2.6vw, 1.85rem);
-  letter-spacing: -0.02em;
-  color: var(--text);
-}
-
-.store-badges {
-  display: grid;
-  gap: 0.85rem;
-}
-
-.store-badge-card {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-  padding: 1.15rem 1.25rem;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-}
-
-.store-icon {
-  flex: 0 0 auto;
-  width: 2.75rem;
-  height: 2.75rem;
-  display: grid;
-  place-items: center;
-  background: var(--bg-muted);
-  border: 1px solid var(--border);
-  color: var(--text);
-}
-
-.store-icon.android {
-  color: var(--copper-bright);
-}
-
-.store-platform {
-  margin: 0;
-  font-size: 0.65rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--text-dim);
-  font-weight: 600;
-}
-
-.store-name {
-  margin: 0.1rem 0 0.55rem;
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--text);
-}
-
 /* ========== CTA ========== */
 .cta-band {
   padding: clamp(3.5rem, 7vw, 5rem) 0;
@@ -1346,7 +1276,6 @@ code {
 @media (max-width: 1020px) {
   .hero-grid,
   .sku-layout,
-  .apps-layout,
   .footer-grid {
     grid-template-columns: 1fr;
   }
