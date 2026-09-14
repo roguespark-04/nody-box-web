@@ -1,19 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
-  <rect width="32" height="32" rx="7" fill="#12151a"/>
-  <!-- Copper circuit-trace N (approx. brand mark) -->
-  <g fill="none" stroke="#c9854a" stroke-linecap="round" stroke-linejoin="round">
-    <!-- left stem (outlined channel) -->
-    <path stroke-width="2.1" d="M8.2 6.4 V25.6"/>
-    <path stroke-width="1.35" d="M11.4 6.4 V25.6"/>
-    <!-- diagonal circuit bar -->
-    <path stroke-width="2.35" d="M11.2 8.1 L20.6 23.9"/>
-    <!-- right stem -->
-    <path stroke-width="2.1" d="M23.8 6.4 V25.6"/>
-    <!-- trace nodes -->
-    <circle cx="10.2" cy="9.6" r="1.45" fill="#c9854a" stroke="none"/>
-    <circle cx="21.6" cy="22.4" r="1.45" fill="#c9854a" stroke="none"/>
-    <!-- short spur traces -->
-    <path stroke-width="1.2" d="M10.2 9.6 L12.4 9.0"/>
-    <path stroke-width="1.2" d="M21.6 22.4 L19.4 23.0"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Wagner Custom Designs">
+  <rect width="64" height="64" fill="#ffffff"/>
+  <g fill="#5EB3E8">
+    <path d="M38 10c-1.2 3.2-2.5 5.8-4.2 7.6l5.2 1.6c-1.8 2.6-4.2 4.4-6.8 5.4l.8 3.4c-3.4-.8-6.8-3.2-8.6-6.6-2.4 1.8-5 5.2-5.8 9.2-.8 3.4.2 6.8 1.8 9.4l-4.2 2.4c-2.6-4.2-3.4-9.4-1.8-14.2 1.8-5.8 6-10.8 11-13.4.8-2.6 2.4-5.2 4.2-7.6l7.4 3.4z"/>
+    <path d="M22 40c1.6 5 5.2 8.4 10.2 10 2.6.8 5.2.8 7.6 0l1.6 4.2c-3.4 1.6-7.6 1.6-11.2.6-6.8-2.4-11.8-7.6-13.6-14.2l5.4-.6z"/>
+    <path d="M40 46c2.4 0 4.4-.8 6-2.4l2.6 3.4c-2.6 2.4-5.8 3.4-9.2 3.4V46z"/>
   </g>
 </svg>

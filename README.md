@@ -1,41 +1,31 @@
-# Nody Box — product site
+# Wagner Custom Designs — company site
 
-Commercial marketing site for **Nody Box**: battery-powered Ethernet heartbeat **hardware** for AI datacenter construction and cable plant verification.
+Commercial company homepage for **Wagner Custom Designs** (interim name). Custom design and hardware products for industry.
 
-This repo is the public company / product marketing page. It is **not** the collector / ops dashboard. Product surface: **website + hardware device** (USB / `etctl` provisioning).
+**Nody Box** is a **product** of the company (battery-powered Ethernet heartbeat hardware for AI datacenter construction) — not the company brand. Company chrome uses the rearing unicorn mark + Wagner Custom Designs wordmark on a white + ice/sky blue palette.
+
+This repo remains named `nody-box-web` for now. Static GitHub Pages from the repository root. It is **not** the collector / ops dashboard. Product surface: **website + hardware device** (USB / `etctl` provisioning). No mobile apps.
 
 ## Local preview
 
-From this directory:
-
 ```bash
-# Python
 python3 -m http.server 4173
-
-# or Node
-npx --yes serve -l 4173
+# or: npx --yes serve -l 4173
 ```
 
 Open [http://127.0.0.1:4173](http://127.0.0.1:4173).
 
-Static files only — no build step. Compatible with GitHub Pages from the repository root.
-
 ## GitHub Pages
 
-1. Repo → **Settings** → **Pages**
-2. **Build and deployment** → Source: **Deploy from a branch**
-3. Branch: **`main`** / folder: **`/ (root)`**
-4. Save — site publishes at `https://roguespark-04.github.io/nody-box-web/`
+Published at `https://roguespark-04.github.io/nody-box-web/` from branch **`main`** / folder **`/ (root)`**.
 
 ## Layout
 
 | Path | Role |
 | --- | --- |
-| `index.html` | Industrial commercial company homepage |
-| `privacy.html` / `terms.html` | Legal placeholders |
-| `styles.css` | Charcoal + copper corporate theme + local IBM Plex |
+| `index.html` | Company homepage (Products · About · Contact; Nody Box product detail) |
+| `privacy.html` / `terms.html` | Legal placeholders (Wagner Custom Designs) |
+| `styles.css` | White + ice/sky blue (`#5EB3E8` family) + local IBM Plex |
 | `app.js` | Mobile nav |
-| `assets/` | Brand lockup (copper N + NODY BOX), N mark/favicon, fonts |
+| `assets/wagner-unicorn-logo.png` | Company mark (ice/sky blue unicorn) |
 | `screenshots/` | Capture references |
-
-Design intent: Harris / Applied Digital / Siemens / Keysight-class **hardware seller** — website + device only; not a SaaS or app-store landing page.
