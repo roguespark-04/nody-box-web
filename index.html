@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Wagner Custom Designs — custom design and hardware products for industry. Flagship product: Nody Box, battery-powered Ethernet phone-home for datacenter construction." />
+  <meta name="description" content="Wagner Custom Designs — custom design and hardware products for industry. Flagship product: Nody Box." />
   <meta name="theme-color" content="#5EB3E8" />
   <title>Wagner Custom Designs — Custom Design &amp; Hardware Products</title>
   <link rel="icon" href="assets/wagner-unicorn-logo.png" type="image/png" sizes="any" />
@@ -16,7 +16,7 @@
 
   <header class="site-header" id="top">
     <div class="wrap header-inner">
-      <a class="brand" href="#top" aria-label="Wagner Custom Designs home">
+      <a class="brand" href="index.html" aria-label="Wagner Custom Designs home">
         <img class="brand-mark" src="assets/wagner-unicorn-logo.png" width="44" height="44" alt="" />
         <span class="brand-wordmark">
           <span class="brand-name">Wagner Custom Designs</span>
@@ -67,7 +67,7 @@
       </div>
     </section>
 
-    <!-- Products -->
+    <!-- Products listing (cards link out) -->
     <section id="products" class="section">
       <div class="wrap">
         <header class="section-head">
@@ -96,7 +96,7 @@
               <li>LiPo battery for multi-month build schedules</li>
               <li>USB provisioning via <code>etctl</code></li>
             </ul>
-            <a class="btn btn-primary" href="#nody-box">Product details</a>
+            <a class="btn btn-primary" href="nody-box.html">Open Nody Box page →</a>
           </article>
 
           <article class="product-card product-card-placeholder" aria-label="Future products">
@@ -115,136 +115,8 @@
       </div>
     </section>
 
-    <!-- Nody Box product detail -->
-    <section id="nody-box" class="section section-soft">
-      <div class="wrap">
-        <header class="section-head">
-          <p class="eyebrow">Product · Nody Box</p>
-          <h2>How Nody Box works</h2>
-          <p class="section-lede">
-            Sleep. Wake. Prove it. Sleep. Built for multi-month cable plant builds —
-            not always-on monitoring. Website + device only; no mobile apps.
-          </p>
-        </header>
-
-        <ol class="steps">
-          <li>
-            <span class="step-num">01</span>
-            <div>
-              <h3>Deep sleep</h3>
-              <p>Radio and MCU off. No listeners. Battery conserved for the long haul of the build schedule.</p>
-            </div>
-          </li>
-          <li>
-            <span class="step-num">02</span>
-            <div>
-              <h3>Wake + DHCP</h3>
-              <p>Timer fires (~every 15 minutes). Ethernet comes up; the module obtains an address on the plant network.</p>
-            </div>
-          </li>
-          <li>
-            <span class="step-num">03</span>
-            <div>
-              <h3>POST heartbeat</h3>
-              <p>JSON status — unit id, battery, MAC, and more — POSTed to your collector endpoint.</p>
-            </div>
-          </li>
-          <li>
-            <span class="step-num">04</span>
-            <div>
-              <h3>Confirm &amp; sleep</h3>
-              <p>Wait for HTTP 2xx (up to three tries), then return to deep sleep until the next wake.</p>
-            </div>
-          </li>
-        </ol>
-
-        <div class="detail-split">
-          <div>
-            <h3 class="subhead">Who it’s for</h3>
-            <ul class="plain-list">
-              <li>Datacenter construction and cable verification crews</li>
-              <li>Commissioning teams that need proof of life across hundreds of drops</li>
-              <li>Integrators building AI / HPC halls on multi-month plant schedules</li>
-            </ul>
-          </div>
-          <div>
-            <h3 class="subhead">What ships</h3>
-            <ul class="plain-list">
-              <li>Nody Box module — ESP32 · W5500 Ethernet · OLED · LiPo</li>
-              <li>USB provisioning path via <code>etctl</code></li>
-              <li>Collector backend ships separately — this site is company / product marketing</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="datasheet" id="specs">
-          <div class="datasheet-meta">
-            <p><span>SKU</span> NBX-ETH-BAT · Preliminary</p>
-            <p><span>Category</span> Network infrastructure hardware</p>
-            <a class="btn btn-secondary btn-sm" href="mailto:hello@wagnercustomdesigns.example?subject=Nody%20Box%20inquiry">Request datasheet</a>
-          </div>
-
-          <table class="specs-table">
-            <caption class="visually-hidden">Nody Box hardware specifications</caption>
-            <thead>
-              <tr>
-                <th scope="col">Parameter</th>
-                <th scope="col">Specification</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">Product / SKU</th>
-                <td>Nody Box · NBX-ETH-BAT</td>
-              </tr>
-              <tr>
-                <th scope="row">Microcontroller</th>
-                <td>ESP32</td>
-              </tr>
-              <tr>
-                <th scope="row">Ethernet</th>
-                <td>W5500 wired Ethernet (no Wi‑Fi dependency in the plant)</td>
-              </tr>
-              <tr>
-                <th scope="row">Display</th>
-                <td>OLED — unit id, battery voltage, last confirmation</td>
-              </tr>
-              <tr>
-                <th scope="row">Power</th>
-                <td>LiPo battery (not PoE)</td>
-              </tr>
-              <tr>
-                <th scope="row">Wake interval</th>
-                <td>~15 minutes (configurable)</td>
-              </tr>
-              <tr>
-                <th scope="row">Reachability</th>
-                <td>Outbound HTTP POST only — not ICMP-pingable</td>
-              </tr>
-              <tr>
-                <th scope="row">Heartbeat payload</th>
-                <td>JSON status to customer collector endpoint</td>
-              </tr>
-              <tr>
-                <th scope="row">Provisioning</th>
-                <td>USB + <code>etctl</code> (no mobile apps)</td>
-              </tr>
-              <tr>
-                <th scope="row">Deployment</th>
-                <td>Far-end of cable runs during datacenter construction</td>
-              </tr>
-              <tr>
-                <th scope="row">Operating intent</th>
-                <td>Multi-month build schedules; deep sleep between wake windows</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
     <!-- About -->
-    <section id="about" class="section">
+    <section id="about" class="section section-soft">
       <div class="wrap about-grid">
         <header class="section-head">
           <p class="eyebrow">About</p>
@@ -268,7 +140,7 @@
             </div>
             <div>
               <dt>Flagship product</dt>
-              <dd>Nody Box</dd>
+              <dd><a href="nody-box.html">Nody Box</a></dd>
             </div>
             <div>
               <dt>Focus</dt>
@@ -292,7 +164,7 @@
         </div>
         <div class="cta-actions">
           <a class="btn btn-on-blue" href="mailto:hello@wagnercustomdesigns.example?subject=Wagner%20Custom%20Designs%20inquiry">Email us</a>
-          <a class="btn btn-ghost-light" href="#nody-box">Nody Box details</a>
+          <a class="btn btn-ghost-light" href="nody-box.html">Nody Box product page</a>
         </div>
         <p class="cta-note">
           Placeholder address for now — replace with your production inbox when ready.
@@ -306,7 +178,7 @@
   <footer class="site-footer">
     <div class="wrap footer-grid">
       <div class="footer-brand">
-        <a class="brand brand-footer" href="#top" aria-label="Wagner Custom Designs home">
+        <a class="brand brand-footer" href="index.html" aria-label="Wagner Custom Designs home">
           <img class="brand-mark" src="assets/wagner-unicorn-logo.png" width="40" height="40" alt="" />
           <span class="brand-name">Wagner Custom Designs</span>
         </a>
@@ -320,8 +192,7 @@
         <h3>Products</h3>
         <ul>
           <li><a href="#products">All products</a></li>
-          <li><a href="#nody-box">Nody Box</a></li>
-          <li><a href="#specs">Specifications</a></li>
+          <li><a href="nody-box.html">Nody Box</a></li>
         </ul>
       </nav>
 
@@ -344,7 +215,7 @@
     </div>
     <div class="wrap footer-bottom">
       <p>© 2026 Wagner Custom Designs. All rights reserved.</p>
-      <p class="footer-meta">Company site · Nody Box is a product</p>
+      <p class="footer-meta">Company site · <a href="nody-box.html">Nody Box</a> is a product</p>
     </div>
   </footer>
 
