@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Nody Bot — battery-powered Ethernet phone-home for AI datacenter construction. ESP32 · W5500 · OLED · LiPo. Outbound heartbeat only; not pingable. USB / etctl provisioning." />
+  <meta name="theme-color" content="#5EB3E8" />
+  <title>Nody Bot — Battery Ethernet Phone-Home · Wagner Custom Designs</title>
+  <link rel="icon" href="assets/wagner-unicorn-logo.png" type="image/png" sizes="any" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="assets/wagner-unicorn-logo.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="page-product">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html" aria-label="Wagner Custom Designs home">
+        <img class="brand-mark" src="assets/wagner-unicorn-logo.png" width="44" height="44" alt="" />
+        <span class="brand-wordmark">
+          <span class="brand-name">Wagner Custom Designs</span>
+          <span class="brand-sub">Custom design · Hardware products</span>
+        </span>
+      </a>
+
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+      </button>
+
+      <nav class="nav" id="primary-nav" aria-label="Primary">
+        <a href="index.html#products">Products</a>
+        <a href="index.html#about">About</a>
+        <a href="#contact" class="nav-cta">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap breadcrumb-bar">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Wagner Custom Designs</a>
+        <span class="breadcrumb-sep" aria-hidden="true">/</span>
+        <span aria-current="page">Nody Bot</span>
+      </nav>
+    </div>
+
+    <!-- Product hero -->
+    <section class="hero product-hero" aria-labelledby="hero-heading">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Product · Wagner Custom Designs</p>
+          <h1 id="hero-heading">Nody Bot</h1>
+          <p class="product-hero-tagline">Battery Ethernet phone-home for datacenter construction</p>
+          <p class="lede">
+            Hang it on the far end of a cable run. It sleeps for most of the build,
+            wakes on a schedule, and POSTs a heartbeat so you know the drop is still
+            alive — without PoE, without staying pingable, and without a mobile app.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">Talk to sales</a>
+            <a class="btn btn-secondary" href="#specs">View specs</a>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="hero-card product-hero-card">
+            <img class="hero-product-mark" src="assets/nody-bot-logo-lockup.png" width="280" height="120" alt="" />
+            <ul class="product-hero-chips">
+              <li>ESP32</li>
+              <li>W5500</li>
+              <li>OLED</li>
+              <li>LiPo</li>
+            </ul>
+            <p class="hero-card-meta">SKU NBX-ETH-BAT · Preliminary</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section id="how" class="section section-soft">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="eyebrow">How it works</p>
+          <h2>Sleep. Wake. Prove it. Sleep.</h2>
+          <p class="section-lede">
+            Built for multi-month cable plant builds — not always-on monitoring.
+            Website + device only; no mobile apps.
+          </p>
+        </header>
+
+        <ol class="steps">
+          <li>
+            <span class="step-num">01</span>
+            <div>
+              <h3>Deep sleep</h3>
+              <p>Radio and MCU off. No listeners. Battery conserved for the long haul of the build schedule.</p>
+            </div>
+          </li>
+          <li>
+            <span class="step-num">02</span>
+            <div>
+              <h3>Wake + DHCP</h3>
+              <p>Timer fires (~every 15 minutes). Ethernet comes up; the module obtains an address on the plant network.</p>
+            </div>
+          </li>
+          <li>
+            <span class="step-num">03</span>
+            <div>
+              <h3>POST heartbeat</h3>
+              <p>JSON status — unit id, battery, MAC, and more — POSTed to your collector endpoint.</p>
+            </div>
+          </li>
+          <li>
+            <span class="step-num">04</span>
+            <div>
+              <h3>Confirm &amp; sleep</h3>
+              <p>Wait for HTTP 2xx (up to three tries), then return to deep sleep until the next wake.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Why -->
+    <section id="why" class="section">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="eyebrow">Why Nody Bot</p>
+          <h2>Proof of life when the plant isn’t finished</h2>
+          <p class="section-lede">
+            During AI / HPC hall construction, cable drops sit unfinished for months.
+            You need to know they still work — without leaving something pingable on
+            an incomplete network, and without PoE at the far end.
+          </p>
+        </header>
+
+        <div class="detail-split">
+          <div>
+            <h3 class="subhead">Who it’s for</h3>
+            <ul class="plain-list">
+              <li>Datacenter construction and cable verification crews</li>
+              <li>Commissioning teams that need proof of life across hundreds of drops</li>
+              <li>Integrators building AI / HPC halls on multi-month plant schedules</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="subhead">Product truth</h3>
+            <ul class="plain-list">
+              <li>Battery-powered Ethernet phone-home (outbound only)</li>
+              <li>Not ICMP-pingable — no always-on listener</li>
+              <li>Purpose-built for datacenter construction timelines</li>
+              <li>Hardware stack: ESP32 · W5500 · OLED · LiPo</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="why-grid">
+          <article class="why-card">
+            <h3>Not pingable by design</h3>
+            <p>Deep sleep between wakes. No ICMP, no open ports waiting for scans on an unfinished plant.</p>
+          </article>
+          <article class="why-card">
+            <h3>Months on battery</h3>
+            <p>LiPo power — not PoE — so the far end works before power distribution is ready.</p>
+          </article>
+          <article class="why-card">
+            <h3>Your collector</h3>
+            <p>Heartbeats POST to your endpoint. This site is marketing; collector / ops software ships separately.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Specs / datasheet -->
+    <section id="specs" class="section section-soft">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="eyebrow">Specifications</p>
+          <h2>Datasheet (preliminary)</h2>
+          <p class="section-lede">
+            Hardware parameters for planning and RFQ. Specs may change before commercial availability.
+          </p>
+        </header>
+
+        <div class="datasheet">
+          <div class="datasheet-meta">
+            <p><span>SKU</span> NBX-ETH-BAT · Preliminary</p>
+            <p><span>Category</span> Network infrastructure hardware</p>
+            <a class="btn btn-secondary btn-sm" href="mailto:hello@wagnercustomdesigns.example?subject=Nody%20Bot%20datasheet%20request">Request datasheet</a>
+          </div>
+
+          <table class="specs-table">
+            <caption class="visually-hidden">Nody Bot hardware specifications</caption>
+            <thead>
+              <tr>
+                <th scope="col">Parameter</th>
+                <th scope="col">Specification</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Product / SKU</th>
+                <td>Nody Bot · NBX-ETH-BAT</td>
+              </tr>
+              <tr>
+                <th scope="row">Microcontroller</th>
+                <td>ESP32</td>
+              </tr>
+              <tr>
+                <th scope="row">Ethernet</th>
+                <td>W5500 wired Ethernet (no Wi‑Fi dependency in the plant)</td>
+              </tr>
+              <tr>
+                <th scope="row">Display</th>
+                <td>OLED — unit id, battery voltage, last confirmation</td>
+              </tr>
+              <tr>
+                <th scope="row">Power</th>
+                <td>LiPo battery (not PoE)</td>
+              </tr>
+              <tr>
+                <th scope="row">Wake interval</th>
+                <td>~15 minutes (configurable)</td>
+              </tr>
+              <tr>
+                <th scope="row">Reachability</th>
+                <td>Outbound HTTP POST only — not ICMP-pingable</td>
+              </tr>
+              <tr>
+                <th scope="row">Heartbeat payload</th>
+                <td>JSON status to customer collector endpoint</td>
+              </tr>
+              <tr>
+                <th scope="row">Provisioning</th>
+                <td>USB + <code>etctl</code> (no mobile apps)</td>
+              </tr>
+              <tr>
+                <th scope="row">Deployment</th>
+                <td>Far-end of cable runs during datacenter construction</td>
+              </tr>
+              <tr>
+                <th scope="row">Operating intent</th>
+                <td>Multi-month build schedules; deep sleep between wake windows</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Provisioning -->
+    <section id="provisioning" class="section">
+      <div class="wrap provision-grid">
+        <header class="section-head">
+          <p class="eyebrow">Provisioning</p>
+          <h2>USB + <code>etctl</code></h2>
+          <p class="section-lede">
+            Configure units over USB with the <code>etctl</code> tool before they hit the plant.
+            No mobile apps — website + device only.
+          </p>
+          <ul class="plain-list">
+            <li>Set collector URL, unit identity, and wake interval</li>
+            <li>Verify battery and Ethernet bring-up on the bench</li>
+            <li>Ship configured modules to the far-end install crew</li>
+          </ul>
+          <p class="provision-note">
+            What ships: Nody Bot module (ESP32 · W5500 · OLED · LiPo) and the USB
+            provisioning path. Collector backend is separate.
+          </p>
+        </header>
+        <aside class="provision-aside" aria-label="Provisioning summary">
+          <dl>
+            <div>
+              <dt>Interface</dt>
+              <dd>USB</dd>
+            </div>
+            <div>
+              <dt>Tool</dt>
+              <dd><code>etctl</code></dd>
+            </div>
+            <div>
+              <dt>Apps</dt>
+              <dd>None — no mobile apps</dd>
+            </div>
+            <div>
+              <dt>Surface</dt>
+              <dd>Website + hardware device</dd>
+            </div>
+          </dl>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Sales / contact CTA -->
+    <section id="contact" class="section section-cta">
+      <div class="wrap cta-inner">
+        <div class="cta-copy">
+          <p class="eyebrow eyebrow-light">Sales &amp; contact</p>
+          <h2>Ready for a build or pilot?</h2>
+          <p>
+            Ask about Nody Bot availability, datasheets, or a custom design engagement
+            from Wagner Custom Designs.
+          </p>
+        </div>
+        <div class="cta-actions">
+          <a class="btn btn-on-blue" href="mailto:hello@wagnercustomdesigns.example?subject=Nody%20Bot%20inquiry">Email sales</a>
+          <a class="btn btn-ghost-light" href="index.html">← Wagner Custom Designs</a>
+        </div>
+        <p class="cta-note">
+          Placeholder address for now — replace with your production inbox when ready.
+          Or open a note via
+          <a href="https://github.com/roguespark-04/nody-box-web">GitHub</a>.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div class="footer-brand">
+        <a class="brand brand-footer" href="index.html" aria-label="Wagner Custom Designs home">
+          <img class="brand-mark" src="assets/wagner-unicorn-logo.png" width="40" height="40" alt="" />
+          <span class="brand-name">Wagner Custom Designs</span>
+        </a>
+        <p class="footer-tagline">
+          Nody Bot is a product of Wagner Custom Designs — battery Ethernet phone-home
+          for datacenter cable plant verification.
+        </p>
+      </div>
+
+      <nav class="footer-col" aria-label="Product">
+        <h3>Nody Bot</h3>
+        <ul>
+          <li><a href="#how">How it works</a></li>
+          <li><a href="#why">Why</a></li>
+          <li><a href="#specs">Specifications</a></li>
+          <li><a href="#provisioning">Provisioning</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer-col" aria-label="Company">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#products">All products</a></li>
+          <li><a href="https://github.com/roguespark-04/nody-box-web">GitHub</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer-col" aria-label="Legal">
+        <h3>Legal</h3>
+        <ul>
+          <li><a href="privacy.html">Privacy policy</a></li>
+          <li><a href="terms.html">Terms of use</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="wrap footer-bottom">
+      <p>© 2026 Wagner Custom Designs. All rights reserved.</p>
+      <p class="footer-meta"><a href="index.html">Company home</a> · Nody Bot product page</p>
+    </div>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
